@@ -12,15 +12,19 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject private var weatherVM = WeatherViewModel()
+    @State private var city: String = ""
     
     var body: some View {
-        Text("\(self.weatherVM.temperature)")
+        VStack{
+            TextField("Search", text: self.$city, onEditingChanged: {_ in}, onCommit: {self.weatherVM.fetchWeather(city: self.city)}).textFieldStyle(RoundedBorderTextFieldStyle())
+            Spacer()
+            Text("\(self.weatherVM.temperature)")
+            Spacer()
             
-            .onAppear(){
-                self.weatherVM.fetchWeather()
-            }
+        }.padding()
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

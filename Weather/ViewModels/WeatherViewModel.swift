@@ -18,9 +18,9 @@ class WeatherViewModel: ObservableObject {
         return temp
     }
     
-    func fetchWeather() {
+    func fetchWeather(city: String) {
         
-        WeatherService().getWeather { result in
+        WeatherService().getWeather(city: city) { result in
             switch result {
             
             case.success(let weather):
