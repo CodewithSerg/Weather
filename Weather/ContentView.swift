@@ -7,10 +7,18 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    
+    @ObservedObject private var weatherVM = WeatherViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Text("\(self.weatherVM.temperature)")
+            
+            .onAppear(){
+                self.weatherVM.fetchWeather()
+            }
     }
 }
 
