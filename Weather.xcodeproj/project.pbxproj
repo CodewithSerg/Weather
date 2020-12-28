@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7AB8D4FE259A822700A718F0 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8D4FD259A822700A718F0 /* String+Extensions.swift */; };
 		7AF8095C259905120026B85A /* WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8095B259905120026B85A /* WeatherApp.swift */; };
 		7AF8095E259905120026B85A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8095D259905120026B85A /* ContentView.swift */; };
 		7AF80960259905130026B85A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AF8095F259905130026B85A /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7AB8D4FD259A822700A718F0 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7AF80958259905120026B85A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF8095B259905120026B85A /* WeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApp.swift; sourceTree = "<group>"; };
 		7AF8095D259905120026B85A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				7AF8097525990B620026B85A /* URL+Extensions.swift */,
+				7AB8D4FD259A822700A718F0 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AF80972259906540026B85A /* WeatherService.swift in Sources */,
+				7AB8D4FE259A822700A718F0 /* String+Extensions.swift in Sources */,
 				7AF8097A25990F580026B85A /* WeatherViewModel.swift in Sources */,
 				7AF8095E259905120026B85A /* ContentView.swift in Sources */,
 				7AF8097625990B620026B85A /* URL+Extensions.swift in Sources */,
