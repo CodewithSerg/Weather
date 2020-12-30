@@ -22,7 +22,7 @@ struct ContentView: View {
             
             switch self.weatherVM.loadingState {
             case .loading: Text("Loading...")
-            case .success: WeatherView(temperature: self.weatherVM.temperature, humidity: self.weatherVM.humidity)
+            case .success: WeatherView(weatherVM: self.weatherVM)
             case .failed: Text("\(weatherVM.message)")
             case .none: Text("")
             }
@@ -43,17 +43,23 @@ struct ContentView_Previews: PreviewProvider {
 
 struct WeatherView : View {
     
-    let temperature: Double
-    let humidity: Double
+    @ObservedObject var weatherVM: WeatherViewModel
     
     var body: some View {
         VStack{
-        Text("\(temperature)")
+            Text("\(self.weatherVM.temperature)")
             .font(.title3)
             .foregroundColor(.white)
-        Text("\(humidity)")
+            Text("\(self.weatherVM.humidity)")
                 .foregroundColor(.white)
                 .opacity(0.7)
+            
+            Picker(selection: self.$weatherVM.temperatureUnit, label: Text("Select the unit")){
+                ForEach(TemperatureUnit.allCases, id:\.self){
+                    unit in
+                    Text(unit.title)
+                }
+            }.pickerStyle(SegmentedPickerStyle())
         }
         .padding()
         .frame(width: 300, height: 150)

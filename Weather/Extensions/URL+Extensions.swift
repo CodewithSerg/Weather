@@ -11,7 +11,7 @@ extension URL {
     
     static func urlForWeather(_ city: String)-> URL? {
         
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=6276a3e8ea47208fa9616b3212f3c494&units=metric") else {
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=6276a3e8ea47208fa9616b3212f3c494") else {
             return nil
         }
         return url
