@@ -19,9 +19,16 @@ struct ContentView: View {
         VStack{
             TextField("Search", text: self.$city, onEditingChanged: {_ in}, onCommit: {self.weatherVM.fetchWeather(city: self.city)}).textFieldStyle(RoundedBorderTextFieldStyle())
             Spacer()
-            Text("\(self.weatherVM.temperature)")
+            
+            switch self.weatherVM.loadingState {
+            case .loading: Text("Loading...")
+            case .success: WeatherView(temperature: self.weatherVM.temperature, humidity: self.weatherVM.humidity)
+            case .failed: Text("\(weatherVM.message)")
+            case .none: Text("")
+            }
+           
             Spacer()
-            Text(weatherVM.message)
+            
             
         }.padding()
     }
@@ -31,5 +38,26 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct WeatherView : View {
+    
+    let temperature: Double
+    let humidity: Double
+    
+    var body: some View {
+        VStack{
+        Text("\(temperature)")
+            .font(.title3)
+            .foregroundColor(.white)
+        Text("\(humidity)")
+                .foregroundColor(.white)
+                .opacity(0.7)
+        }
+        .padding()
+        .frame(width: 300, height: 150)
+        .background(Color.blue)
+        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
 }
